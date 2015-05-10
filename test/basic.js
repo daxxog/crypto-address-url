@@ -34,9 +34,9 @@ vows.describe('basic').addBatch({
     		assert.equal(topic('1AGNa15ZQXAZUgxiqJ2i7Z2DPU2J6hW62i'), false);
     	},
     	'parse an amount that is not a number or a string': function(topic) {
-    		assert.notEqual(topic('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', function() {
+    		assert.equal(topic('38ccq12hPFoiSksxUdr6SQ5VosyjY7s9AU', function() {
     			return 1;
-    		}), 'bitcoin:1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i?amount=1');
+    		}), 'bitcoin:38ccq12hPFoiSksxUdr6SQ5VosyjY7s9AU');
     	}
     },
     'CryptoAddressUrl will': {
