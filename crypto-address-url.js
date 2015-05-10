@@ -20,7 +20,45 @@
         root.CryptoAddressUrl = factory();
   }
 }(this, function() {
-    var CryptoAddressUrl;
+    var CryptoAddressUrl,
+        ValidCryptoAddress = require('valid-crypto-address');
+
+    CryptoAddressUrl = function(address, amount) {
+        var head, tail = '';
+
+        if(ValidCryptoAddress(address)) {
+            switch(address.split('').shift()) {
+                case '1':
+                    head = 'bitcoin'
+                  break;
+                case '3':
+                    head = 'bitcoin'
+                  break;
+                case 'D':
+                    head = 'dogecoin'
+                  break;
+                case 'L':
+                    head = 'litecoin'
+                  break;
+                case 'P':
+                    head = 'peercoin'
+                  break;
+                case 'x':
+                    head = 'clam'
+                  break;
+                default:
+                  return false;
+            }
+
+            if((typeof amount === 'number') || (typeof amount === 'string')) {
+                tail = '?amount=' + amount;
+            }
+
+            return head + ':' + address + tail;
+        } else {
+            return false;
+        }
+    };
     
     return CryptoAddressUrl;
 }));

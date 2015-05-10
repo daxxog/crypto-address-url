@@ -7,4 +7,4 @@
 
 var CryptoAddressUrl = require('./crypto-address-url.min.js');
 
-new CryptoAddressUrl();
+console.log(CryptoAddressUrl(process.argv[2], process.argv[3]));
